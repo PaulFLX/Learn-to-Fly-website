@@ -277,6 +277,67 @@ main {
     font-weight: 600;
 }
 
+.lead-magnet-offer {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(182, 194, 217, 0.3);
+    border-radius: 8px;
+    border-left: 4px solid var(--steel-blue);
+}
+
+.lead-magnet-text {
+    font-size: 0.95rem;
+    color: var(--shadow-gray);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.lead-magnet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.lead-magnet-form input {
+    padding: 0.8rem;
+    border: 1px solid var(--steel-blue);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.lead-magnet-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(77, 126, 168, 0.2);
+}
+
+.lead-magnet-form input::placeholder {
+    color: #999;
+}
+
+.btn-lead-magnet {
+    background-color: var(--steel-blue);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-lead-magnet:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(77, 126, 168, 0.3);
+}
+
+.btn-lead-magnet:active {
+    transform: translateY(0);
+}
+
 .hero-image img {
     width: 100%;
     max-width: 400px;

@@ -40,6 +40,14 @@
                     <button class="btn btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">Get Instant Access Now</button>
                     <p class="price-tag">Only $39.99</p>
                 </div>
+                <div class="lead-magnet-offer">
+                    <p class="lead-magnet-text">Not ready yet? <strong>Get a FREE PDF Summary of the book</strong></p>
+                    <form class="lead-magnet-form" onsubmit="downloadPDF(event)">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn btn-lead-magnet">Download Free PDF</button>
+                    </form>
+                </div>
             </div>
             <div class="hero-image">
                 <img src="images/bookcover.png" alt="Learn How to Fly in 4 Weeks - Digital Book Cover">
@@ -108,7 +116,7 @@
         <!-- TRUST STAGE: About Author Section -->
         <section id="author" class="author">
             <div class="author-content">
-                <img src="https://via.placeholder.com/200x200?text=Captain+Michael+Hayes+Pilot" alt="Captain Michael Hayes - Professional Pilot and Aviation Expert with 25+ years experience">
+                <img src="images/pilot.png" alt="Captain Michael Hayes - Professional Pilot and Aviation Expert with 25+ years experience">
                 <div class="author-info">
                     <h2>Meet Your Instructor</h2>
                     <h3>Captain Michael Hayes</h3>
@@ -165,6 +173,33 @@
             navLinks.classList.remove('active');
         });
     });
+
+    // Download PDF function
+    function downloadPDF(event) {
+        event.preventDefault();
+        
+        // Get form values
+        const name = event.target.querySelector('input[type="text"]').value;
+        const email = event.target.querySelector('input[type="email"]').value;
+        
+        // Store data (you can send this to your own email or service later)
+        console.log(`Lead captured: ${name}, ${email}`);
+        
+        // Create a simple PDF download
+        // For now, we'll create a placeholder. Replace with your actual PDF file
+        const link = document.createElement('a');
+        link.href = 'pdf-summary.pdf'; // Replace with your actual PDF file path
+        link.download = 'Learn_to_Fly_Summary.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Show success message
+        alert(`Thank you ${name}! Your PDF is downloading. Check your downloads folder.`);
+        
+        // Reset form
+        event.target.reset();
+    }
 </script>
     <script>
         const backToTopBtn = document.getElementById('backToTop');
