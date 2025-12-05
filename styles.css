@@ -82,6 +82,7 @@ a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 2rem;
+    position: relative;
 }
 
 .logo {
@@ -129,6 +130,35 @@ a:hover {
     list-style: none;
     gap: 2rem;
     align-items: center;
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 100;
+    padding: 0.5rem;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--steel-blue);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .nav-links a {
@@ -425,7 +455,7 @@ main {
 
 .author-content {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 250px 1fr;
     gap: 3rem;
     align-items: center;
     background: linear-gradient(135deg, var(--powder-blue) 0%, rgba(182, 194, 217, 0.2) 100%);
@@ -435,11 +465,12 @@ main {
 }
 
 .author-content img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     box-shadow: 0 8px 24px rgba(39, 41, 50, 0.2);
     transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
 .author-content img:hover {
@@ -603,8 +634,47 @@ main {
     transform: translateY(0);
 }
 
+
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        border-top: 1px solid #ddd;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 99;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        max-height: 400px;
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 0.8rem 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a {
+        padding: 0.8rem 0;
+        display: block;
+    }
+
     h1 {
         font-size: 2rem;
     }
